@@ -73,52 +73,96 @@
                                     +----------------------------------------+
 
 ```
-# 🌟 Network Automation With AI
+# Network Automation with AI
 
-This project is designed to harness the power of AI for automating network operations on Cisco IOS XE devices. It translates natural language queries into precise network commands, ensuring safe execution with built-in verification and error handling.
+## Project Description
+This project leverages AI to automate network operations on Cisco IOS XE devices. It translates natural language queries into precise network commands, ensuring safe execution with built-in verification and error handling. By combining AI-driven NLP and network automation frameworks, this tool enhances operational efficiency, minimizes errors, and simplifies network management for engineers and administrators.
 
-## Key Features
-- **Natural Language Processing (NLP) for Network Commands**: Translate user queries into executable network commands using AI.
-- **Real-Time Command Execution and Verification**: Executes network commands instantly and verifies their accuracy before applying them.
-- **Comprehensive Logging and Error Handling**: Automatically logs all operations, providing extensive error handling to prevent misconfigurations.
-- **User-Friendly Interface**: Designed with a Streamlit interface for ease of use by both technical and non-technical users.
-- **Secure Device Connection Management**: Securely manages connections to Cisco devices, maintaining session integrity.
-- **Automatic Command Validation and Verification**: Ensures commands are valid and checks results against expected network state.
+## Business Use Case
+Managing network devices through CLI-based commands can be complex and error-prone, requiring domain expertise. This solution enables users to interact with network devices using natural language, reducing the technical barrier and improving accuracy through automated validation. The project helps in:
+- Automating configuration tasks
+- Running diagnostics and troubleshooting commands
+- Ensuring compliance with pre- and post-execution checks
 
-## 🛠️ Technology Stack
+## Technology Stack
+- **LangGraph** - AI-driven workflow orchestration
+- **LangChain** - NLP framework for AI integration
+- **OpenAI GPT** - Natural language processing and command translation
+- **Netmiko** - Network device automation via CLI access
+- **Streamlit** - Web interface for user interactions
+- **Pydantic** - Data validation and settings management
 
-### Core Dependencies
-- **LangGraph**: Powers the orchestration of AI-driven workflows.
-- **LangChain**: Integration framework for advanced AI/LLM capabilities.
-- **OpenAI GPT**: Utilizes GPT models for natural language understanding and command translation.
-- **Netmiko**: Provides network device automation, supporting CLI access to Cisco IOS XE.
-- **Streamlit**: Simplifies the web interface for users to interact with the platform.
-- **Pydantic**: Ensures data validation and reliable settings management.
+## Status
+- **Version**: Beta
+- **Current Progress**: Functional prototype with core automation features
+- **Planned Enhancements**:
+  - Support for multi-vendor environments
+  - Integration with network monitoring tools
 
-## Get Started
+## Installation
+### Prerequisites
+- Python 3.8+
+- Virtual Environment setup
+- API key for OpenAI (GPT integration)
+
+### Installation Steps
 1. Clone the repository:
-```bash
+   ```bash
    git clone <repository-url>
-```
-2. Install requirments
-```bash
-   pip install -r requirments.txt
-```
-3. ENV Vars set up in .env file:
-```bash
-     OPENAI_API_KEY=your-key
-     DEVICE_TYPE=cisco_ios
-     HOST=sandbox-iosxe-latest-1.cisco.com
-     USERNAME=admin
-     PASSWORD=C1sco12345
-```
-4. Export ENV Vars:
-```bash
-     export $(cat .env)
-```
-5. Run the code
-```bash
-     streamlit run frontend.py
-```
+   ```
+2. Navigate to the project folder:
+   ```bash
+   cd automation_AI
+   ```
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Set environment variables in `.env`:
+   ```bash
+   OPENAI_API_KEY=your-key
+   DEVICE_TYPE=cisco_ios
+   HOST=sandbox-iosxe-latest-1.cisco.com
+   USERNAME=admin
+   PASSWORD=C1sco12345
+   ```
+5. Export environment variables:
+   ```bash
+   export $(cat .env)
+   ```
+6. Run the application:
+   ```bash
+   streamlit run frontend.py
+   ```
 
-   
+## Usage
+### Example Command Flow
+1. **User Input**: "Configure interface GigabitEthernet1 with IP 192.168.1.1/24"
+2. **AI Processing**: LangChain interprets input and categorizes it
+3. **Command Execution**:
+   - Pre-checks (show commands)
+   - Configuration (apply settings)
+   - Verification (validate changes)
+4. **Output**:
+   - Display results in Streamlit UI
+   - Log execution details
+
+## Known Issues
+- Limited to Cisco IOS XE devices
+- Requires stable API access for AI-driven command translation
+- May require additional security configurations for production use
+
+## Getting Help
+For issues, open a ticket in the repository's issue tracker.
+
+## Contributing
+- Contributions are welcome! Follow standard GitHub practices for pull requests.
+- Check the [CONTRIBUTING](CONTRIBUTING.md) file for details.
+
+## License
+This code is licensed under the BSD 3-Clause License. See [LICENSE](LICENSE) for details.
+
+## Related Resources
+- Cisco DevNet Sandbox: [Multi-IOS Cisco Test Network](https://devnetsandbox.cisco.com/RM/Topology)
+- Learning Labs: [Model Driven Programmability (NETCONF/YANG)](https://developer.cisco.com/)
+
