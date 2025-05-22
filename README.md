@@ -146,7 +146,8 @@ Managing network devices through CLI-based commands can be complex and error-pro
 4. **Output**:
    - Display results in Streamlit UI
    - Log execution details
-
+## Demo
+[Watch the demo](demo.webm)
 ## Known Issues
 - Limited to Cisco IOS XE devices
 - Requires stable API access for AI-driven command translation
